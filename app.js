@@ -9,6 +9,15 @@ window.onload = function(){
 	context.rect(0,0,canvas.width,canvas.height);
 	context.fill();
 
+	var gif1 = new SuperGif({ gif: document.getElementById('gif1') } );
+	gif1.load();
+	var gif1Canvas = gif1.get_canvas();
+	//gif1.Canvas.display = none;
+	
+
+	context.drawImage(gif1Canvas, 100,100,200,200);
+
+	/*
 	var dabbas = [];
 
 	for(i=0; i<5;i++){
@@ -21,7 +30,6 @@ window.onload = function(){
 	}
 
 	var isDragging = false;
-
 
 	canvas.addEventListener("mousedown", canvasOnMouseDown);
 	canvas.addEventListener("mouseup", canvasOnMouseUp);
@@ -62,7 +70,7 @@ window.onload = function(){
 	};
 
 	function canvasOnMouseUp(event){
-		console.log(event);
+		//console.log(event);
 		isDragging = false;
 		//console.log("is Dragging = " + isDragging);
 		for(i=0;i<dabbas.length;i++){
@@ -94,4 +102,5 @@ window.onload = function(){
 			dabbas[i].draw(context);
 		}
 	}
+	*/
 }
