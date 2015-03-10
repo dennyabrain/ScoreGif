@@ -4,6 +4,9 @@ var dabba = function(x,y,width,height){
 	this.y = y || 200;
 	this.width = width || 40;
 	this.height = height || 100;
+	this.synth = new Tone.AMSynth();
+	this.synth.toMaster();
+	this.isSynthPlaying = false;
 };
 
 /**
@@ -30,6 +33,8 @@ dabba.prototype.isClicked = function(context,x,y){
 
 	if(context.isPointInPath(x,y)){
 		return true;
+	} else{
+		return false;
 	}
 }
 
@@ -47,4 +52,24 @@ dabba.prototype.setX = function(x){
  */
 dabba.prototype.setY = function(y){
 	this.y = y;
+}
+
+/**
+ * [playNote triggers an attack of the synth if its not playing already]
+ * @return {[none]}
+ */
+dabba.prototype.playNote = function(){
+	if(!this.isSynthPlaying){
+		isSynthPlaying = true;
+		this.synth.triggerAttack(220);
+	}
+}
+
+/**
+ * [stopNote triggers a release of the synth if its playing]
+ * @return {[type]}
+ */
+dabba.prototype.stopNote = function(){
+	this.isSynthPlaying = false;
+	this.synth.triggerRelease();
 }
