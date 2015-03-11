@@ -5,27 +5,33 @@ window.onload = function(){
 	//Just styling and setting up canvas to fit full screen
 	canvas.width = window.innerWidth;
 	canvas.height = window.innerHeight;
-	context.fillStyle = "#99aa33";
+	context.fillStyle = "#99AA33";
 	context.rect(0,0,canvas.width,canvas.height);
 	context.fill();
 
+	/*
 	var gif1 = new SuperGif({ gif: document.getElementById('gif1') } );
-	gif1.load();
-	var gif1Canvas = gif1.get_canvas();
-	//gif1.Canvas.display = none;
+	var gif1Canvas;
+	gif1.load(function(){
+		gif1Canvas = gif1.get_canvas();
+		context.drawImage(gif1Canvas, 100,100);
+		gif1.play();
+	});
+	*/
+	
+	//console.log(gif1Canvas);
+	
 	
 
-	context.drawImage(gif1Canvas, 100,100,200,200);
-
-	/*
+	
 	var dabbas = [];
 
 	for(i=0; i<5;i++){
-		dabbas[i] = new dabba(1+i*200,100, 180, 250);
+		dabbas[i] = new dabba(1+i*200,100, 180, 250, i);
 		dabbas[i].draw(context);
 	}
 	for(i=0; i<5;i++){
-		dabbas[i+5] = new dabba(1+i*200,300, 180, 250);
+		dabbas[i+5] = new dabba(1+i*200,300, 180, 250, i+5);
 		dabbas[i+5].draw(context);
 	}
 
@@ -102,5 +108,5 @@ window.onload = function(){
 			dabbas[i].draw(context);
 		}
 	}
-	*/
+	
 }

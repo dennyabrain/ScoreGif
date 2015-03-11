@@ -1,3 +1,25 @@
 <html>
-	<head></hea>
+	<head>
+		<title>canvas tests</title>
+	</head>
+	<body>
+		<canvas id="canvas1"></canvas>
+		<canvas id="canvas2"></canvas>
+		<script>
+			var c1 = document.getElementById("canvas1");
+			var cont1 = c1.getContext('2d');
+			var c2 = document.getElementById("canvas2");
+			var cont2 = c2.getContext('2d');
+
+			cont1.fillStyle = "#ff0000";
+			cont1.fillRect(0,0,200,200);
+
+			cont2.fillStyle = "#0000ff";
+			cont2.fillRect(0,0,100,100);
+
+			console.log(c2);
+
+			cont1.drawImage(c2,0,0);
+		</script>
+	</body>
 </html>

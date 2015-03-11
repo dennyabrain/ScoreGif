@@ -1,5 +1,5 @@
 
-var dabba = function(x,y,width,height){
+var dabba = function(x,y,width,height,index){
 	this.x = x || 200 ;
 	this.y = y || 200;
 	this.width = width || 40;
@@ -7,6 +7,16 @@ var dabba = function(x,y,width,height){
 	this.synth = new Tone.AMSynth();
 	this.synth.toMaster();
 	this.isSynthPlaying = false;
+	this.nam = 'gif'+index;
+	this.gif = new SuperGif({
+		gif  : document.getElementById(this.nam),
+		autoplay : true
+	})
+	console.log(this.gif);
+	//this.gifCanvas;
+	//this.gif.load(function(){
+	//	console.log('this gif is loaded');
+	//})
 };
 
 /**
